@@ -1,0 +1,51 @@
+﻿Chapter 1 Introduction
+The publication registry system (also called edulab) as it was at the beginning of the project was composed of two parts.
+
+The server It runs thanks to Node.JS and is built on a MongoDB database. The latter gathers all the data that are entered on the webstite in a structured way and is made accessible via the Loopback framework. This framework provides users with access to the database via HTTP requests (mainly GET, POST, PUT, DELETE) thanks to its RESTful architecture. On that side of the application, nothing much was to be done except getting familiar with all the different frameworks.
+
+The client website Built with the Angular 4 Javascript framework, this is the main component of the project that I had to work on. It is divided into 3 main sections:
+ The Essays: gathers all the different essays written by the students. It supports Markdown style and every essay can be proof-read, thus commented, reviewed and "voted" (like Stackoverflow questions for example).
+ The Events: when students have essays to hand in, their teacher/professor creates an event with a title, a hashtag, a deadline and some other features. Then, the students have to subscribe to the corresponding event and submit their essay.
+ The Articles: the part that needed to be enhanced. The main objective was to gather all the resources cited by the students in that section so that they could be easily accessible.
+
+There is also a user identification system, but there was not too much (if not none) work to do on this side. However, it was to be taken into account since some of the features depend on the role of the logged user (e.g. admin, moderator etc.)
+
+1.1 Background
+So far, the students could only refer to the resources that they used by listing them at the end of the body of their essays. Therefore, every time a user wanted to get information about a given resource, he/she had to remember exactly in which essay it was cited. Furthermore, the issue could also be encountered in the other way, when a user wants to know which are the essays referring to a given resource. Finally, some role-specific features had to be added, such as the possibility for an admin/moderator to delete one or several resources.
+
+1.2 Objectives
+In order to address all theses issues, three main objectives were planned
+1. Create the link between the client and the server to register the resources
+2. Create links between the Essays and the resources
+3. Add the deletion features for the corresponding roles
+4. More objectives
+
+1.3 Contributions
+As the development processwas following the Agile method, I was given the role of build master. Therefore, my contrbiutions on the project consisted in ensuring that:
+ The code is well-written (i.e. concise functions, clear variable names etc.)
+ Every submission results in a successful build
+
+Chapter 2
+Realization
+2.1 Testing strategy
+The testing strategy that was adopted consisted in realizing automated testing for the unit testing part and manual testing for the end-to-end testing. To realize the automated testing, the tools used were:
+ Jasmine: a Javascript testing framework. It allows developers to write automated tests in a really simple way and is completely compatible with Angular.
+ Karma: it is an automated test runner. Once configured, the testswrittenwith the Jasmine framework are automatically executed in a browser. Furthermore, it is launched along with a watcher, which means that the changes on the files are detected and the tests are automatically re-launched
+The testing environment was already settled, so the main aspect of the work was to adapt and enhance the already existing tests and create new tests along with the new functionalities. However, I had to get familiar with all those tools, since I had no background at all regarding automated testing in web development. Finally, the tests were integrated to the bitbucket deposit via a pipeline, which allowed to ensure that the tests were ran at every pull requests, making the builds safer.
+
+2.2 Testing artefacts
+First of all, the testing module has to be configured. Here is an example of a the configuration used for the article service, provided with a mock backend to test its response to a given input.
+
+After the configuration is done, the tests themselves can be written.
+
+Another important aspect of testing is the coverage. It corresponds to the percentage of the code that is covered by the code, i.e. which functionalities are tested and which are not. It is a feature provided by Karma, and the result is shown as follows:
+
+Finally, as already explained, all the tests are embedded in a bitbucket pipeline in order to make sure that each time a pull request is fired, the tests are ran with the new code, thus ensuring a good integration with the already existing functionalities.
+
+Chapter 3
+Conclusions, Discussion
+3.1 Summary and Conclusions
+Although my main focus during the project was to provide a good testing streategy and therefore to focus on the testing tools that I had at my disposal, I also learned a lot about Angular and Typescript. Indeed, it would have been impossible for me to write proper tests without understanding the fundamentals of how Modules, Components and Services work together. However, Typescript was a little bit easier to apprehend given my background in both Javascript and Object Oriented programming. Nevertheless, I acquired a lot of skills in software testing with this project, whether it is about the strategy to adopt, or how to actually realize the tests.
+
+3.2 Discussion
+The Agile method was something already familiar to me but every project is different. Thanks to the Publication Registry project, I gained more experience in project management, and it helped me being aware of some important aspects. First of all, planning tasks is something that should be done really carefully. Indeed, theremust be an equilibriumbetween setting tasks that are too small and thus too easy to fulfill, and tasks that are too big, therefore not doable in one sprint. Secondly, the testing part has to be part of the development process itself. Usually, I tend to somehow separate it from the rest and most of the time do it at the end. However, it actually increases the workload way more, along with the risk of writing improper tests. Finally, I also learned that communication in a team is very important, especially when everybody's work has to be reviewed. In fact, a bad communication within a team could lead to two people realizing the same part of the work, which results in a global loss of time for the whole team.

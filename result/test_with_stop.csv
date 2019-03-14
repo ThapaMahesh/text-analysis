@@ -1,0 +1,2 @@
+FileName,WordCount,UniqeWordCount,LexicalDiversity,SentenceCount,Sentence > 20 Words,SyllableCount,ARI,ARI Grade, CLI,CLI Grade, FRE, FRE Grade
+D:\python-projects\nltk/data\A.txt,1105,434,39.276018099547514%,54,24,1711,16.98049505614211,Graduate,17.932380090497734,Graduate,55.06907449304509,10th-12th
